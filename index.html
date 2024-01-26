@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+
+
+<head>
+	<title>CMU Rhythm Game</title>
+	<style>
+		@font-face {
+			font-family: 'Aller';
+			src: url('allerlight.ttf') format('truetype');
+		}
+		html {
+			color: white;
+			background-image: url("piano.jpg");
+			background-repeat: no-repeat;
+			background-size: 100%;
+			font-family: 'Aller', Calibri, 'Trebuchet MS', sans-serif;
+		}
+		.below {
+			position: relative;
+			top: -1vh;
+		}
+		.disabledButton {
+			position: absolute;
+			background-color: #1D1D1D;
+			transition-duration: .3s;
+			border: 2px solid #1B1B1B;
+			color: white;
+			width: 5vw;
+			height: 2vw;
+			bottom: -0.1vh;
+			text-align: center;
+			position: relative;
+			margin: auto;
+			cursor: default;
+		
+		}
+		.button {
+			position: absolute;
+			background-color: #1D1D1D;
+			transition-duration: .3s;
+			border: 2px solid #1B1B1B;
+			color: white;
+			width: 5vw;
+			height: 2vw;
+			bottom: -0.1vh;
+			text-align: center;
+			position: relative;
+			margin: auto;
+			cursor: pointer;
+		}
+		.button:hover {
+			border: 5px double rgb(100, 244, 126);
+		}
+		.left {
+			display: block;
+			margin-right: auto;
+			border: 0.5vw rgb(127, 81, 129) double;
+			margin-left: 1vw;
+			margin-top: 1vw;
+			margin-right: 1vw;
+		}
+		.center {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			width: 50%;
+		}
+		image {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			width: 20%;
+		}
+		p {
+			color: white;
+		}
+		h2 {
+			position: absolute;
+			font-size: 2vw;
+			font-family: 'Aller';
+			padding-left: 13vw;
+			margin-bottom: -0.1vw;
+			margin-top: 0.5vw;
+		}
+		.container {
+			background-color: #2c066e;
+			width: 50%;
+			margin-left: auto;
+			margin-right: auto;
+			border-radius: 1vw;
+			border: 0.4vw solid rgb(34, 3, 77);
+		}
+	</style>
+</head>
+	
+
+
+<body>
+	
+	<script>
+		function loadFile(filename) {
+			var iframe = document.createElement("iframe");
+			iframe.src = filename;
+			alert("copied");
+			return iframe.contentDocument.body.firstChild.innerHTML;
+		}
+		function load(mapName) {
+			var text = loadFile(mapName + '.html');
+			navigator.clipboard.writeText(text);
+		}
+	</script>
+	
+	<image src="title.gif" class='center'></image>
+	<div class="container">
+		<h2>Chroma - Dark Sheep</h2>
+		<image src="darksheep.jpg" class="left" width="150" height="150"></image>
+		<button class="disabledButton" style="left: 13vw; bottom: 11vh; margin: 0; /*background-color: rgb(61, 98, 61)*/">-</button>
+		<button class="button" style="left: 13vw; bottom: 11vh; margin: 0; background-color: rgb(98, 98, 61)" onclick="load('darksheep_nm')">Normal</button>
+		<button class="button" style="left: 13vw; bottom: 11vh; margin: 0; background-color: rgb(98, 61, 61)" onclick="load('darksheep_hd')">Hard</button>
+		<button class="disabledButton" style="left: 13vw; bottom: 11vh; margin: 0; /*background-color: rgb(61, 98, 61)*/">-</button>
+	</div>
+	<br>
+	<div class="container">
+		<h2>antiPLUR - Runengon</h2>
+		<image src="runengon.jpg" class="left" width="150" height="150"></image>
+		<button class="button" style="left: 13vw; bottom: 11vh; margin: 0; background-color: rgb(61, 98, 61)" onclick="load('runengon_ez')">Easy</button>
+		<button class="button" style="left: 13vw; bottom: 11vh; margin: 0; background-color: rgb(98, 98, 61)" onclick="load('runengon_nm')">Normal</button>
+		<button class="button" style="left: 13vw; bottom: 11vh; margin: 0; background-color: rgb(98, 61, 61)" onclick="load('runengon_hd')">Hard</button>
+		<button class="disabledButton" style="left: 13vw; bottom: 11vh; margin: 0; /*background-color: rgb(61, 98, 61)*/">-</button>
+	</div>
+	<br>
+	<div class="container">
+		<h2>Camellia - Crystallized</h2>
+		<image src="crystalized.jpg" class="left" width="150" height="150"></image>
+		<button class="button" style="left: 13vw; bottom: 11vh; margin: 0; background-color: rgb(61, 98, 61)" onclick="load('crystallized_ez')" >Easy</button>
+		<button class="button" style="left: 13vw; bottom: 11vh; margin: 0; background-color: rgb(98, 98, 61)" onclick="load('crystallized_nm')">Normal</button>
+		<button class="button" style="left: 13vw; bottom: 11vh; margin: 0; background-color: rgb(98, 61, 61)" onclick="load('crystallized_hd')">Hard</button>
+		<button class="button" style="left: 13vw; bottom: 11vh; margin: 0; background-color: rgb(192, 31, 31)"onclick="load('crystallized_ex')">Expert</button>
+	</div>
+	<br>
+	<br>
+	<br>
+	<div class="container">
+		<p style='text-align: center'>
+			<u><strong>Custom Map Instructions</strong></u>
+			<ol>
+				<li>Install pyperclip using pip</li>
+				<li>Get the python script by clicking <a href="darksheep.jpg" download="">here</a></li>
+				<li>Put it in a new folder</li>
+				<li>Find some osu mania maps</li>
+				<li>Change the file extension to .zip</li>
+				<li>Go inside and take the .osu files</li>
+				<li>And put them in the same directory as the python script</li>
+				<li>Then run the python script</li>
+				<li>Put in the numerical id that it gives you for the map you want</li>
+				<li>Paste it into a text editor, and replace the "song" parameter at the beginning with the song url</li>
+				<li>Go back to cmu and paste that into console</li>
+			</ol>
+		</p>
+	</div>
+	
+</body>
+
+
+
+</html>
