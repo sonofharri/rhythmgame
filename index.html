@@ -98,15 +98,14 @@
 <body>
 	
 	<script>
-		function loadFile(filename) {
-			var iframe = document.createElement("iframe");
-			iframe.src = filename;
-			alert("copied");
-			return iframe.contentDocument.body.firstChild.innerHTML;
-		}
 		function load(mapName) {
-			var text = loadFile(mapName + '.html');
-			navigator.clipboard.writeText(text);
+			fetch("https://raw.githubusercontent.com/sonofharri/rhythmgame/main/" + mapName + ".txt")
+				.then(response => {return response.text();})
+				.then(data => {
+					navigator.clipboard.writeText(data);
+					alert("Copied text. Paste into console to play!")
+				}
+			);
 		}
 	</script>
 	
@@ -145,7 +144,7 @@
 			<u><strong>Custom Map Instructions</strong></u>
 			<ol>
 				<li>Install pyperclip using pip</li>
-				<li>Get the python script by clicking <a href="darksheep.jpg" download="">here</a></li>
+				<li>Get the python script by clicking <a href="encoder.py" download="">here</a></li>
 				<li>Put it in a new folder</li>
 				<li>Find some osu mania maps</li>
 				<li>Change the file extension to .zip</li>
